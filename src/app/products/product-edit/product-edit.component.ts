@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -20,7 +20,7 @@ import * as ProductActions from '../state/product.actions';
 export class ProductEditComponent implements OnInit {
   pageTitle = 'Product Edit';
   errorMessage = '';
-  productForm: FormGroup;
+  productForm: UntypedFormGroup;
 
   product$: Observable<Product | null>;
 
@@ -29,7 +29,7 @@ export class ProductEditComponent implements OnInit {
   private validationMessages: { [key: string]: { [key: string]: string } };
   private genericValidator: GenericValidator;
 
-  constructor(private store: Store<State>, private fb: FormBuilder) {
+  constructor(private store: Store<State>, private fb: UntypedFormBuilder) {
 
     // Defines all of the validation messages for the form.
     // These could instead be retrieved from a file or database.
